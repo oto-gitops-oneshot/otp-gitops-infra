@@ -1,7 +1,7 @@
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
-  name: cloudpak
+  name: cp4ba-operator-group
 spec:
   targetNamespaces:
-    - cloudpak
+    - cp4ba
