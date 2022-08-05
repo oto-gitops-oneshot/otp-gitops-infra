@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: db2-configure-crb
+subjects:
+- kind: ServiceAccount
+  name: db2-configure-sa
+  namespace: db2
+roleRef:
+  kind: ClusterRole
+  name: db2-configure-cr
+  apiGroup: rbac.authorization.k8s.io
