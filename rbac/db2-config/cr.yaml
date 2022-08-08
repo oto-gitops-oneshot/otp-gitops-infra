@@ -8,7 +8,7 @@ rules:
   verbs: ["get", "patch", "list"]
 - apiGroups: [""] 
   resources: ["pods/exec"]
-  verbs: ["create", "list"]
+  verbs: ["create", "list", "get"]
 - apiGroups: [""] 
   resources: ["namespaces"]
   verbs: ["get", "list"]
