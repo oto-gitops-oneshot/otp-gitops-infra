@@ -15,11 +15,14 @@ These will be used to generate DockerConfigJSON like this:
        "cp.icr.io": {
          "username": "cp",
          "password": "OTMuMTg0LjIxNi4zNAo=",
-         "email": "user@example.com",
+         "email": "yourUsedId@ibm.com",
          "auth": "dXNlckBleGFtcGxlLmNvbTpPVE11TVRnMExqSXhOaTR6TkFvPQo="
        }
      }
    }
+The value "cp", associated with the username field is always cp. Do not change this.
+
+Navigate to the following link to obtain a password: https://myibm.ibm.com/products-services/containerlibrary
 
 The auth value is equivalent to base64(email:password).
 EOF
