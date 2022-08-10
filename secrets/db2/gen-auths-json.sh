@@ -4,11 +4,12 @@ function usage() {
 cat<<EOF
 $0 takes two values as mandatory inputs: an email address and a password.
 
-Usage:
+Usage/Example:
+        export EMAIL=user@example.com
+        export PASSWORD=OTMuMTg0LjIxNi4zNAo=
+        ./$0
 
-       $0 -e user@example.com -p OTMuMTg0LjIxNi4zNAo=
-
-These will be used to generate JSON like this:
+These will be used to generate DockerConfigJSON like this:
    {
      "auths": {
        "cp.icr.io": {
@@ -24,25 +25,6 @@ The auth value is equivalent to base64(email:password).
 EOF
 }
 
-while getopts "e:p:h" opt; do
-    case $opt in
-        e)
-            email=$OPTARG;
-            ;;
-        p)
-            password=$OPTARG;
-            ;;
-        h)
-            usage;
-            exit 0;
-            ;;
-        *)
-            usage;
-            exit 1;
-            ;;
-  esac
-done
-
 # Is the utility jq to be found?
 which jq 2>&1 > /dev/null
 if [ $? -gt 0 ]; then
@@ -51,13 +33,13 @@ if [ $? -gt 0 ]; then
 fi
 
 # Do we have the mandatory inputs?
-if [ ${#email} -eq 0 ] || [ ${#password} -eq 0 ]; then
+if [ ${#EMAIL} -eq 0 ] || [ ${#PASSWORD} -eq 0 ]; then
     usage
     exit 1
 fi
 
 # Generate the auth value:
-auth=$(echo "$email:$password" | base64)
+auth=$(echo "$EMAIL:$PASSWORD" | base64)
 
 # Generate the JSON object containing an auths object:
 json="
@@ -65,13 +47,11 @@ json="
   \"auths\": {
     \"cp.icr.io\": {
       \"username\": \"cp\",
-      \"password\": \"$password\",
-      \"email\": \"$email\",
+      \"password\": \"$PASSWORD\",
+      \"email\": \"$EMAIL\",
       \"auth\": \"$auth\"
     }
   }
 }"
 
 echo $json | jq
-
-# TODO: block unsafe inputs, e.g., shell will execute back-ticked commands inside the string args
