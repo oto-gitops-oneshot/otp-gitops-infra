@@ -6,6 +6,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: global-ca-sa
+  namespace: global-sa
 roleRef:
   kind: ClusterRole 
   name: global-ca-cr
