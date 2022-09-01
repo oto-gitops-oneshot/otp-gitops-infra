@@ -1,7 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: cp4ba-sa-cr
+  name: cp4ba-cr
   namespace: default
 rules:
   - verbs:
