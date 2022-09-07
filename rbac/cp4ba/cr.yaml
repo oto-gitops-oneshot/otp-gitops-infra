@@ -9,6 +9,7 @@ rules:
     apiGroups:
       - config.openshift.io/v1
       - operator.openshift.io/v1
+      - operator.openshift.io
     resources:
       - ingresscontrollers
       - ingress
