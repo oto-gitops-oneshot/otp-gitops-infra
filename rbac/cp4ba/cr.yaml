@@ -45,12 +45,12 @@ rules:
       - icp4a.ibm.com
     resources:
       - icp4aclusters
+  - verbs:
+      - get
+      - list
+      - watch
     apiGroups:
       - batch
     resources:
       - cronjobs
       - jobs
-  - verbs:
-      - get
-      - list
-      - watch
