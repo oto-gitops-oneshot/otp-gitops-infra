@@ -26,8 +26,8 @@ Action points moving forward are given in the following subsections.
 
 You would have noted a PVC required to stand up DB2 (when provisioned in the services application) is defined. Originally, this was not included. When standing up the DB2UCluster Custom Resource however, the db2 pods would wait indefinitely on this PVC, hence the reason for it's inclusion. 
 
-This may not be required after all, according to other teams, and warrants further investigation. Perhaps the version we are using, as defined in the operator subscription as outlined in the README provided in the [services repository](https://github.com/oto-gitops-oneshot/otp-gitops-services), is outdated and the issue is remediated in newer versions.
+This may not be required after all, according to other teams, and as such, **this warrants further investigation**. Perhaps the version we are using, as defined in the operator subscription as outlined in the README provided in the [services repository](https://github.com/oto-gitops-oneshot/otp-gitops-services), is outdated and the issue is remediated in newer versions.
 
-You will notice also that this PVC changes according to it's enviornment. The pvc/db2/overlays directory contains a sub-directory called "ibmcloud-roks". The storage class used for the PVC is a function of the cloud provider. We have deployed this to ROKS hosted on IBM Cloud, hence the sub-directory. Future iterations would contain directories for AWS and Azure, amongst others. This is, of course, assuming the PVC issue raised above is indeed an issue. 
+You will notice also that this PVC changes according to it's enviornment. The **pvc/db2/overlays** directory contained within this repo contains a sub-directory called "ibmcloud-roks". The storage class used for the PVC is a function of the cloud provider. We have deployed this to ROKS hosted on IBM Cloud, hence this sub-directory. Future iterations would contain sub-directories for AWS and Azure, amongst others. This is, of course, assuming the PVC issue raised above is indeed an issue. 
 
 
