@@ -5,7 +5,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: openldap-configure-sa
-  namespace: db2
+  namespace: openldap
 roleRef:
   kind: ClusterRole
   name: openldap-configure-cr
