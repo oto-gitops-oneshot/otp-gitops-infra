@@ -8,7 +8,7 @@ rules:
   verbs: ["get", "list"]
 - apiGroups: [""] 
   resources: ["configmaps"]
-  verbs: ["create", "list", "get"]
+  verbs: ["create", "list", "get", "delete"]
 - apiGroups: [""] 
   resources: ["namespaces"]
   verbs: ["get", "list"]
